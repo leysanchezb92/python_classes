@@ -1,0 +1,19 @@
+# Archivos de la máquina virtual de Python
+venv/
+env/
+
+# Archivos de caché y compilados de Python
+__pycache__/
+*.pyc
+*.pyd
+*.pyo
+
+# Archivos de editor de código y de IDE
+.vscode/
+.idea/
+
+# Archivos de macOS
+.DS_Store
+
+# Archivos de la línea de comandos
+.history
