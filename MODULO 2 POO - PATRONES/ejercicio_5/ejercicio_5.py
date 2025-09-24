@@ -4,9 +4,18 @@ import math
 class Circulo:
     pi = 3.14159
     def __init__(self, radio):
+        """
+        Initialize Circle.
+
+        Args:
+            radio: Circle radius. (Ex: '10')
+        """
         self.radio = radio
 
     def area_circulo(self):
+        """
+        Returns area.
+        """
         area = math.pow(self.radio, 2) * self.pi
         return area
 

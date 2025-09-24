@@ -14,8 +14,8 @@ FIN CLASE
 
 ## ✅ Tareas
 
-- [ ] Implementar la solución en Python.
+- [x] Implementar la solución en Python.
 
 - [ ] Añadir pruebas unitarias.
 
-- [ ] Documentar el código.
+- [x] Documentar el código.
