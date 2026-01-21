@@ -263,32 +263,32 @@ def ver_todos_socio():
   print(table)
   
 def main():
-  #Funcion principal
   while True:
     mostrar_menu()
+    # Usas .strip() correctamente para evitar errores por espacios accidentales
     opcion = input("Ingrese la opcion de 0 a 7: ").strip()
     
     match opcion:
       case "1":
-        registrar_libro()
-        ""
+          registrar_libro()
       case "2":
-        registrar_socio()
-        ""
-      case "3":
-        ""
-      case "4":
-        ""
-      case "5":
-        ""
+          registrar_socio()
+      case "3" | "4" | "5": # Puedes agrupar casos si aún no tienen lógica
+          print("Funcionalidad en desarrollo...")
       case "6":
-        print("Todos los libros que tenemos: ")
-        ver_todos_libros()
+          print("\n--- Todos los libros que tenemos ---")
+          ver_todos_libros()
       case "7":
-        print("Todos los socios que tenemos registrados: ")
-        ver_todos_socio()
+          print("\n--- Todos los socios registrados ---")
+          ver_todos_socio()
       case "0":
-        "Ha cerrado sesion"
-        break
+          print("Ha cerrado sesión con éxito. ¡Hasta pronto!")
+          break
+      case _: # IMPORTANTE: Maneja entradas incorrectas
+          print("Opción no válida. Por favor, ingrese un número del 0 al 7.")
+
+# ¡No olvides llamar a la función para que el programa inicie!
+if __name__ == "__main__":
+    main()
       
 print(main())
