@@ -6,12 +6,12 @@ class Weapon:
     def attack(self):
         print(f"Attacking with {self.weapon_name} having power {self.weapon_power}")
 
-class Character(Weapon):
-    def __init__(self, name, level, live, weapon_name, weapon_power):
-        super().__init__(weapon_name, weapon_power)
+class Character():
+    def __init__(self, name, level, live, weapon:Weapon):
         self.name = name
         self._level = level
         self._live = live
+        self.weapon = weapon
 
     @property # Getter method level
     def level(self):
@@ -51,14 +51,25 @@ class Character(Weapon):
        
 
 class Enemy(Character):
-     def __init__(self, name, level, live, type_enemy, weapon_name, weapon_power=10):
-        super().__init__(name, level, live, weapon_name, weapon_power)
+    def __init__(self, name, level, live, type_enemy, weapon:Weapon):
+        super().__init__(name, level, live, weapon)
         self.type_enemy = type_enemy
+    
+    def attack(self):
+        print(f"Enemy {self.name} attacks with {self.weapon.weapon_name} having power {self.weapon.weapon_power}")
+        print("----------")
+        print(f"Enemy has taken damage!. Current health: {self.live}")
+
 
 class Allied(Character):
-    def __init__(self, name, level, live, type_ally, weapon_name, weapon_power=10 ):
-        super().__init__(name, level, live, weapon_name, weapon_power)
+    def __init__(self, name, level, live, type_ally, weapon:Weapon):
+        super().__init__(name, level, live, weapon)
         self.type_ally = type_ally
+    
+    def attack(self):
+        print(f"Allied {self.name} attacks with {self.weapon.weapon_name} having power {self.weapon.weapon_power}")
+        print("----------")
+        print(f"Allied has taken damage!. Current health: {self.live}")
 
 characters = []
 
@@ -71,26 +82,30 @@ def register_character(characters=characters):
     live = 100
     weapon_power = 10
     if character_type == "Enemy":
-        enemy = Enemy(name_character, level, live, "Zombie","knife", weapon_power)
+        enemy_weapon = Weapon('knife', weapon_power)
+        enemy = Enemy(name_character, level, live, "Zombie", enemy_weapon)
         print(f"Enemy character '{name_character}' created successfully!")
         print("---- Character Details ----")
         print(f"Name: {enemy.name}")
-        print(f"Weapon Name: {enemy.weapon_name}")
-        print(f"Weapon Power: {enemy.weapon_power}")
+        print(f"Weapon Name: {enemy.weapon.weapon_name}")
+        print(f"Weapon Power: {enemy.weapon.weapon_power}")
         print(f"Type: {enemy.type_enemy}")
 
         characters.append(enemy)
 
-    else:
-        allied = Allied(name_character, level, live, "Knight", "sword", weapon_power)
+    elif character_type == "Allied":
+        allied_weapon = Weapon("sword", weapon_power)
+        allied = Allied(name_character, level, live, "Knight", allied_weapon)
         print(f"Allied character '{name_character}' created successfully!")
         print("---- Character Details ----")
         print(f"Name: {allied.name}")
-        print(f"Weapon Name: {allied.weapon_name}")
-        print(f"Weapon Power: {allied.weapon_power}")
+        print(f"Weapon Name: {allied.weapon.weapon_name}")
+        print(f"Weapon Power: {allied.weapon.weapon_power}")
         print(f"Type: {allied.type_ally}")
 
         characters.append(allied)
+    else:
+        print("Invalid character type. Please choose 'Allied' or 'Enemy'.")
 
 def attack_character():
     target = input("Enter the name of the character to attack: ").capitalize().strip()
@@ -99,7 +114,8 @@ def attack_character():
     for character in characters:    
         if character.name == target:
             character.damage(10)  # Example damage value
-            print(f"Character {target} attacked successfully. Character's current health: {character.live}")
+            weapon_attack = character.weapon.attack()
+            print(f"Character {target} attacked successfully, dealing {weapon_attack} damage. Character's current health: {character.live}")
             print("------------------------")
             print("\n")
         elif character.live <= 0:
@@ -141,7 +157,7 @@ def show_all_characters(characters=characters):
             specific_type = character.type_enemy
         elif isinstance(character, Allied):
             specific_type = character.type_ally
-        print(f"Name: {character.name}, Type: {specific_type}, Level: {character.level}, Health: {character.live}, Weapon: {character.weapon_name}, Power: {character.weapon_power}")
+        print(f"Name: {character.name}, Type: {specific_type}, Level: {character.level}, Health: {character.live}, Weapon: {character.weapon.weapon_name}, Power: {character.weapon.weapon_power}")
         print("------------------------")
         print("\n")
 
