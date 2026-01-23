@@ -5,10 +5,16 @@ class Empleado:
         self.nombre = nombre
         self.apellido = apellido
         self.identificacion = identificacion
-        pass
+
 
 class Gerente(Empleado):
-    def __init__(self, departamento):
+    def __init__(self, departamento, nombre, apellido, identificacion):
+        super().__init__(nombre, apellido, identificacion)
         self.departamento = departamento
-        super().__init__()
-        pass
+    
+
+empleado1 = Empleado("Carlos", "Lopez", "12345678")
+gerente1 = Gerente("Ventas", "Ana", "Gomez", "87654321")
+
+print(f'Empleado: {empleado1.nombre} {empleado1.apellido}, ID: {empleado1.identificacion}')
+print(f'Gerente: {gerente1.nombre} {gerente1.apellido}, ID: {gerente1.identificacion}, Departamento: {gerente1.departamento}')

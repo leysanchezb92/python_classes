@@ -20,8 +20,8 @@ Se requiere el diseño y desarrollo de un sistema de clases para un juego de rol
 
 [x] Define una clase Arma con atributos como nombre y poder. Asocia esta clase con Personaje para que cada personaje pueda tener un arma equipada.
 
-[] Escribe un pequeño script que cree instancias de tus clases y demuestre la interacción entre ellas, como batallas entre personajes y enemigos utilizando las armas.
+[x] Escribe un pequeño script que cree instancias de tus clases y demuestre la interacción entre ellas, como batallas entre personajes y enemigos utilizando las armas.
 
-[] Implementa interacciones entre personajes y enemigos usando las armas, por ejemplo, un método atacar que utilice el poder del arma para reducir la vida del enemigo.
+[x] Implementa interacciones entre personajes y enemigos usando las armas, por ejemplo, un método atacar que utilice el poder del arma para reducir la vida del enemigo.
 
 [x] Asegúrate de probar todos los métodos y verificaciones de encapsulamiento, especialmente el correcto funcionamiento de getters y setters.

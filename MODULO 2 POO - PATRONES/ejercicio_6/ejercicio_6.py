@@ -5,21 +5,25 @@ class Calculadora:
         self.number1 = number1
         self.number2 = number2
 
-    def suma(self):
-        suma = self.number1 + self.number2
+    @staticmethod
+    def suma(number1, number2):
+        suma = number1 + number2
         return suma
 
-    def resta(self):
-        resta = self.number1 - self.number2
+    @staticmethod
+    def resta(number1, number2):
+        resta = number1 - number2
         return resta
 
-    def multiplicar(self):
-        multiplicar = self.number1 * self.number2
+    @staticmethod
+    def multiplicar(number1, number2):
+        multiplicar = number1 * number2
         return multiplicar
 
-    def dividir(self):
-        dividir = self.number1 / self.number2
+    @staticmethod
+    def dividir(number1, number2):
+        dividir = number1 / number2
         return dividir
 
 mi_calculadora = Calculadora(10, 13)
-print(f'Con los numeros entregados {mi_calculadora.number1} y {mi_calculadora.number2}, el resultado de la suma es: {mi_calculadora.suma()}, la resta es: {mi_calculadora.resta()}, la multiplicacion es: {mi_calculadora.multiplicar()} y la division es: {mi_calculadora.dividir()}')
+print(f'Con los numeros entregados {mi_calculadora.number1} y {mi_calculadora.number2}, el resultado de la suma es: {Calculadora.suma(mi_calculadora.number1, mi_calculadora.number2)}, la resta es: {Calculadora.resta(mi_calculadora.number1, mi_calculadora.number2)}, la multiplicacion es: {Calculadora.multiplicar(mi_calculadora.number1, mi_calculadora.number2)} y la division es: {Calculadora.dividir(mi_calculadora.number1, mi_calculadora.number2)}')
