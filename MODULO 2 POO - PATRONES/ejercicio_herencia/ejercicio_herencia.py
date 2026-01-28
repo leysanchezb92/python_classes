@@ -7,7 +7,7 @@ class Weapon:
         print(f"Attacking with {self.weapon_name} having power {self.weapon_power}")
 
 class Character():
-    def __init__(self, name, level, live, weapon:Weapon):
+    def __init__(self, name, level, live, weapon: list[Weapon]):
         self.name = name
         self._level = level
         self._live = live

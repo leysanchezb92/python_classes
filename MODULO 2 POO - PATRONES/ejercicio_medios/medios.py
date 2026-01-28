@@ -11,30 +11,36 @@ class Media(ABC):
         return f" Media title: {self.title} by {self.author}, published on {self.publication_date}"
 
 class Book(Media):
-    def __init__(self, title, author, publication_date, number_pages, gender):
+    def __init__(self, title, author, publication_date, number_pages, genre, media_type = 'Book'):
         super().__init__(title, author, publication_date)
         self.number_pages = number_pages
-        self.gender = gender
+        self.genre = genre
+        self.media_type = media_type
 
     def describe(self):
-        return f" Book title: {self.title} by {self.author}, published on {self.publication_date}, {self.number_pages} pages, Genre: {self.gender}"
+        base = super().describe()
+        return f" Media type: {self.media_type}, {base}, {self.number_pages} pages, Genre: {self.gender}"
 
 class Magazine(Media):
-    def __init__(self, title, author, publication_date, topic, frequency):
+    def __init__(self, title, author, publication_date, topic, frequency, media_type = 'Magazine'):
         super().__init__(title, author, publication_date)
         self.topic = topic
         self.frequency = frequency
+        self.media_type = media_type
 
     def describe(self):
-        return f" Magazine title: {self.title} by {self.author}, published on {self.publication_date}, Topic: {self.topic}, Frequency: {self.frequency}"
+        base = super().describe()
+        return f" Media type: {self.media_type}, {base}, Topic: {self.topic}, Frequency: {self.frequency}"
 
 class Newspaper(Media):
-    def __init__(self, title, author, publication_date):
+    def __init__(self, title, author, publication_date, media_type = 'Newspaper'):
         super().__init__(title, author, publication_date)
+        self.media_type = media_type
 
     def describe(self):
-        return f" Newspaper title: {self.title} by {self.author}, published on {self.publication_date}" 
-    
+        base = super().describe()
+        return f" Media type: {self.media_type}, {base}"
+
 
 # List of media data
 media_data = [

@@ -7,7 +7,7 @@ Se requiere diseñar y desarrollar una jerarquía de clases que represente difer
 ## Instrucciones
 [x] Crea un archivo llamado `medios.py` en el cual estarás trabajando esta actividad
 
-[] Luego, crea una clase abstracta llamada Medio que incluya atributos comunes como título, autor, y fecha de publicación. Además, define un método abstracto describir() que las subclases deberán implementar para proporcionar detalles específicos sobre el medio.
+[x] Luego, crea una clase abstracta llamada Medio que incluya atributos comunes como título, autor, y fecha de publicación. Además, define un método abstracto describir() que las subclases deberán implementar para proporcionar detalles específicos sobre el medio.
 
 - Implementación de clases Hijas:
 
